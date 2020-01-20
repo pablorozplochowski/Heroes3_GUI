@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane fx:id="pane2" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+      prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="Heroes3_GUI.Controllers.MainController">
+    <children>
+        <Label layoutX="75.0" layoutY="85.0" text="Hero 1">
+            <font>
+                <Font size="18.0"/>
+            </font>
+        </Label>
+        <Label layoutX="650.0" layoutY="85.0" text="Hero 2">
+            <font>
+                <Font size="18.0"/>
+            </font>
+        </Label>
+        <Button fx:id="buttonStartFirst" layoutX="300.0" layoutY="76.0" mnemonicParsing="false"
+                onAction="#openSmallWindow" prefHeight="36.0" prefWidth="151.0" text="Select who start first"/>
+        <ComboBox fx:id="comboBox" layoutX="14.0" layoutY="125.0" prefWidth="150.0" promptText="Fractions"/>
+        <ComboBox fx:id="comboBox1" layoutX="636.0" layoutY="125.0" prefWidth="150.0" promptText="Fractions"/>
+
+        <TableView fx:id="tableView" layoutX="14.0" layoutY="221.0" maxHeight="-Infinity" maxWidth="-Infinity"
+                   minHeight="-Infinity" minWidth="-Infinity" prefHeight="250.0">
+            <columns>
+                <TableColumn fx:id="creature" prefWidth="108.0" text="Creature"/>
+                <TableColumn fx:id="price" prefWidth="74.0" text="Price"/>
+                <TableColumn fx:id="amount" minWidth="-Infinity" prefWidth="64.21359480000001" text="Amount"/>
+            </columns>
+
+        </TableView>
+
+        <TableView fx:id="tableView1" layoutX="537.0" layoutY="221.0" maxHeight="-Infinity" maxWidth="-Infinity"
+                   minHeight="-Infinity" minWidth="-Infinity" prefHeight="250.0">
+            <columns>
+                <TableColumn fx:id="creature1" prefWidth="108.0" text="Creature"/>
+                <TableColumn fx:id="price1" prefWidth="74.0" text="Price"/>
+                <TableColumn fx:id="amount1" minWidth="-Infinity" prefWidth="64.21359480000001" text="Amount"/>
+            </columns>
+
+        </TableView>
+
+        <Button fx:id="purchaseButton"  layoutX="14.0" layoutY="521.0" mnemonicParsing="false" prefHeight="36.0"
+                prefWidth="85.0" text="Purchase"/>
+        <Label fx:id="goldLabel" layoutX="154.0" layoutY="521.0" prefHeight="36.0" prefWidth="85.0" text="Gold"/>
+        <Button fx:id="purchaseButton1" layoutX="537.0" layoutY="521.0" mnemonicParsing="false" prefHeight="36.0"
+                prefWidth="85.0" text="Purchase"/>
+        <Label fx:id="goldLabel1" layoutX="677.0" layoutY="521.0" prefHeight="36.0" prefWidth="85.0" text="Gold"/>
+    </children>
+</Pane>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane fx:id="SmallWindow" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+      minWidth="-Infinity" prefHeight="150.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8"
+      xmlns:fx="http://javafx.com/fxml/1" fx:controller="Heroes3_GUI.Controllers.SmallWindowController">
+   <children>
+      <Text layoutX="115.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Kliknij aby wylosować liczbe." />
+      <Button fx:id="klikButton" layoutX="172.0" layoutY="65.0" mnemonicParsing="false" text="Klik" />
+      <Label fx:id="labelRandom" layoutX="140.0" layoutY="111.0" prefHeight="31.0" prefWidth="101.0" />
+   </children>
+</Pane>

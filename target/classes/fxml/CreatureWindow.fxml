@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<TableView fx:id="creatureWindow" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+           prefHeight="150" prefWidth="355.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="Heroes3_GUI.Controllers.CreatureWindowController">
+    <columns>
+
+            <TableColumn fx:id="maxHp" prefWidth="70" text="MaxHp"/>
+            <TableColumn fx:id="range" minWidth="-Infinity" prefWidth="70" text="Range"/>
+            <TableColumn fx:id="attack" minWidth="-Infinity" prefWidth="70" text="Attack"/>
+            <TableColumn fx:id="defence" minWidth="-Infinity" prefWidth="70" text="Defence"/>
+            <TableColumn fx:id="moveRange" minWidth="-Infinity" prefWidth="75" text="MoveRange"/>
+
+    </columns>
+</TableView>
