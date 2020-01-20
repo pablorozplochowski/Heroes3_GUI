@@ -28,7 +28,7 @@ public class SmallWindowController {
             heroesNumbers.add(getRandom());
             if(heroesNumbers.size() == 2){
                 smallWindowInterface.onKlikButton(heroesNumbers);
-                Stage stage = (Stage) klikButton.getScene().getWindow();
+                Stage stage = (Stage) klikButton.getScene().getWindow(); //...
                 stage.close();
             }
         });

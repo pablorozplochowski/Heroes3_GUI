@@ -11,6 +11,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.cell.TextFieldTableCell;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -19,7 +21,7 @@ import java.util.List;
 
 public class MainController implements SmallWindowInterface {
     @FXML
-    Button buttonStartFirst;
+    Button buttonStartFirst, purchaseButton, purchaseButton1;
 
     @FXML
     ComboBox<Fractions> comboBox;
@@ -75,6 +77,35 @@ public class MainController implements SmallWindowInterface {
         }
     }
 
+    @FXML
+    private void purchaseButton(ActionEvent event) {
+        ObservableList<Creatures> dataRows = FXCollections.observableArrayList();
+
+        for(Creatures creature : creaturesObservableList)
+            if (creature.getAmount() > 0) {
+                dataRows.add(creature);
+                creature.getAmount();
+                System.out.println(creature.getAmount());
+                int aAmount = creature.getAmount() - 1;
+                creature.setAmount(aAmount);
+                tableView.refresh();
+                System.out.println(creature.getAmount());
+                break;
+            }
+        try {
+           // tableView.getSelectionModel().selectedItemProperty().addListener((output, oldValue, newValue) -> {
+            purchaseButton.addEventHandler((MouseEvent.MOUSE_CLICKED), (e) -> {
+
+
+            });
+                //Method is called after row selection
+
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+
+    }
+
     @Override
     public void onKlikButton(ArrayList<Integer> heroesNumbers) {
         System.out.println("Wylosowana liczba gracza pierwszego: " + heroesNumbers.get(0).toString());
@@ -96,12 +127,13 @@ public class MainController implements SmallWindowInterface {
         comboBox1Fraction();
     }
 
+
     private void comboBoxFraction() {
         List<Fractions> fractionsList = new ArrayList<>();
         fractionsList.add(new Fractions(Fractions.FractionNames.Inferno));
         fractionsList.add(new Fractions(Fractions.FractionNames.Haven));
         fractionsList.add(new Fractions(Fractions.FractionNames.Necropolis));
-       // comboBox.getItems().addAll(fractionsList);
+        // comboBox.getItems().addAll(fractionsList);
 
         fractionsObservableList = FXCollections.observableArrayList(fractionsList);
         comboBox.setItems(fractionsObservableList);
@@ -142,21 +174,22 @@ public class MainController implements SmallWindowInterface {
                 break;
             case Necropolis:
                 creaturesList.add(new Creatures("Szkieletor", 50.0, 10));
+                creaturesList.add(new Creatures("Widmor", 1312.0, 4));
                 break;
         }
         creaturesObservableList = FXCollections.observableArrayList(creaturesList);
         tableView.setItems(creaturesObservableList);
 
-        tableView.setRowFactory( tv -> {
+        tableView.setRowFactory(tv -> {
             TableRow<Creatures> row = new TableRow<>();
             row.setOnMouseClicked(event -> {
-                if (event.getClickCount() == 2 && (! row.isEmpty()) ) {
+                if (event.getClickCount() == 2 && (!row.isEmpty())) {
                     Creatures rowData = row.getItem();
                     System.out.println(rowData.getName());
                     openCreatureWindow(rowData);
                 }
             });
-            return row ;
+            return row;
         });
     }
 
@@ -179,15 +212,15 @@ public class MainController implements SmallWindowInterface {
         creaturesObservableList = FXCollections.observableArrayList(creaturesList);
         tableView1.setItems(creaturesObservableList);
 
-        tableView1.setRowFactory( tv -> {
+        tableView1.setRowFactory(tv -> {
             TableRow<Creatures> row = new TableRow<>();
             row.setOnMouseClicked(event -> {
-                if (event.getClickCount() == 2 && (! row.isEmpty()) ) {
+                if (event.getClickCount() == 2 && (!row.isEmpty())) {
                     Creatures rowData = row.getItem();
                     //openCreatureWindow(rowData);
                 }
             });
-            return row ;
+            return row;
         });
     }
 

@@ -45,7 +45,7 @@ public class Creatures {
         return amount;
     }
 
-    public void setAmount(int amount) {
+    public void setAmount(Integer amount) {
         this.amount.set(amount);
     }
 }
