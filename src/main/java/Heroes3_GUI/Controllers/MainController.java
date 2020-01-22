@@ -77,19 +77,16 @@ public class MainController implements SmallWindowInterface {
 
     @FXML
     private void purchaseButton(ActionEvent event) {
-
+        double currentGold;
         ObservableList<Creatures> creatures;
         creatures = tableView.getSelectionModel().getSelectedItems();
         if (creatures.get(0).getAmount() > 0) {
             int aAmount = creatures.get(0).getAmount() - 1;
             creatures.get(0).setAmount(aAmount);
             tableView.refresh();
-            double currentGold = 1000 - creatures.get(0).getPrice();
+            currentGold = 1000 - creatures.get(0).getPrice();
             System.out.println("gold");
             goldLabel.setText("" + currentGold);
-            goldLabel.refre
-
-
         }
     }
 
@@ -110,14 +107,17 @@ public class MainController implements SmallWindowInterface {
 
     @FXML
     private void purchaseButton1(ActionEvent event) {
-
+        double currentGold;
         ObservableList<Creatures> creatures;
-        creatures = tableView1.getSelectionModel().getSelectedItems();
-        int aAmount = creatures.get(0).getAmount() - 1;
-        creatures.get(0).setAmount(aAmount);
-        tableView1.refresh();
-
-
+        creatures = tableView.getSelectionModel().getSelectedItems();
+        if (creatures.get(0).getAmount() > 0) {
+            int aAmount = creatures.get(0).getAmount() - 1;
+            creatures.get(0).setAmount(aAmount);
+            tableView.refresh();
+            currentGold = 1000 - creatures.get(0).getPrice();
+            System.out.println("gold");
+            goldLabel.setText("" + currentGold);
+        }
     }
 
     @Override
