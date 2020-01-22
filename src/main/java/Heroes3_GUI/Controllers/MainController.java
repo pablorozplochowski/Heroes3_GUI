@@ -2,6 +2,7 @@ package Heroes3_GUI.Controllers;
 
 import Heroes3_GUI.Models.Creatures;
 import Heroes3_GUI.Models.Fractions;
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -24,16 +25,13 @@ public class MainController implements SmallWindowInterface {
     Button buttonStartFirst, purchaseButton, purchaseButton1;
 
     @FXML
-    ComboBox<Fractions> comboBox;
+    Label goldLabel, goldLabel1;
 
     @FXML
-    ComboBox<Fractions> comboBox1;
+    ComboBox<Fractions> comboBox, comboBox1;
 
     @FXML
-    TableView<Creatures> tableView;
-
-    @FXML
-    TableView<Creatures> tableView1;
+    TableView<Creatures> tableView, tableView1;
 
     @FXML
     TableColumn<Creatures, String> creature;
@@ -79,30 +77,46 @@ public class MainController implements SmallWindowInterface {
 
     @FXML
     private void purchaseButton(ActionEvent event) {
-        ObservableList<Creatures> dataRows = FXCollections.observableArrayList();
 
-        for(Creatures creature : creaturesObservableList)
-            if (creature.getAmount() > 0) {
-                dataRows.add(creature);
-                creature.getAmount();
-                System.out.println(creature.getAmount());
-                int aAmount = creature.getAmount() - 1;
-                creature.setAmount(aAmount);
-                tableView.refresh();
-                System.out.println(creature.getAmount());
-                break;
-            }
-        try {
-           // tableView.getSelectionModel().selectedItemProperty().addListener((output, oldValue, newValue) -> {
-            purchaseButton.addEventHandler((MouseEvent.MOUSE_CLICKED), (e) -> {
+        ObservableList<Creatures> creatures;
+        creatures = tableView.getSelectionModel().getSelectedItems();
+        if (creatures.get(0).getAmount() > 0) {
+            int aAmount = creatures.get(0).getAmount() - 1;
+            creatures.get(0).setAmount(aAmount);
+            tableView.refresh();
+            double currentGold = 1000 - creatures.get(0).getPrice();
+            System.out.println("gold");
+            goldLabel.setText("" + currentGold);
+            goldLabel.refre
 
 
-            });
-                //Method is called after row selection
-
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
         }
+    }
+
+
+//        ObservableList<Creatures> dataRows = FXCollections.observableArrayList();
+
+//        for(Creatures creature : creaturesObservableList)
+//            if (creature.getAmount() > 0) {
+//                dataRows.add(creature);
+//                creature.getAmount();
+//                System.out.println(creature.getAmount());
+//                int aAmount = creature.getAmount() - 1;
+//                creature.setAmount(aAmount);
+//                tableView.refresh();
+//                System.out.println(creature.getAmount());
+//                break;
+//            }
+
+    @FXML
+    private void purchaseButton1(ActionEvent event) {
+
+        ObservableList<Creatures> creatures;
+        creatures = tableView1.getSelectionModel().getSelectedItems();
+        int aAmount = creatures.get(0).getAmount() - 1;
+        creatures.get(0).setAmount(aAmount);
+        tableView1.refresh();
+
 
     }
 
@@ -119,7 +133,13 @@ public class MainController implements SmallWindowInterface {
 
     private void prepareView() {
         prepareComboBoxes();
+        prepareLabels();
 
+    }
+
+    private void prepareLabels() {
+        goldLabel.setText("1000");
+        goldLabel1.setText("1000");
     }
 
     private void prepareComboBoxes() {

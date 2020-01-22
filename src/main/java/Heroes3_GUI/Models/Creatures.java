@@ -7,7 +7,10 @@ public class Creatures {
     private DoubleProperty price = new SimpleDoubleProperty();
     private IntegerProperty amount = new SimpleIntegerProperty();
 
-    public Creatures(String name, Double price, int amount){
+    public Creatures() {
+    }
+
+    public Creatures(String name, Double price, int amount) {
         this.name.set(name);
         this.price.set(price);
         this.amount.set(amount);
